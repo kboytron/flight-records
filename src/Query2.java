@@ -1,15 +1,18 @@
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Query2 {
 
     public static Iterable<String> Query2(Iterable<FlightRecord> input) {
-        return null;
+        Set<String> dest = new HashSet<>();
+
+        for(FlightRecord cid : input){
+            if(cid.ORIGIN.equals("CID")){
+                dest.add(cid.DEST + ", " + cid.DEST_STATE_ABR);
+            }
+        }
+        return dest;
     }
 
     public static void main(String[] args) throws IOException {
