@@ -1,13 +1,23 @@
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Query4 {
 
     public static Iterable<String> Query4(Iterable<FlightRecord> input) {
-        return null;
+
+        Map<String, Integer> dest = new HashMap<>();
+
+        for (FlightRecord cid : input) {
+            if (cid.ORIGIN.equals("CID")) {
+                dest.merge(cid.DEST, 1, Integer::sum);
+            }
+        }
+        Set<String> result = new HashSet<>();
+
+        for(Map.Entry<String, Integer> fin : dest.entrySet()){
+            result.add(fin.getKey() + "=" + fin.getValue());
+        }
+        return result;
     }
 
     public static void main(String[] args) throws IOException {
