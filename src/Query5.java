@@ -7,7 +7,6 @@ public class Query5 {
 
         for(FlightRecord cid : input){
             month.merge(cid.MONTH, 1, Integer::sum);
-            //System.out.println(month.entrySet() + "=" + month.keySet());
         }
         Map.Entry<Integer, Integer> max = null;
         for(Map.Entry<Integer, Integer> entry : month.entrySet()){
