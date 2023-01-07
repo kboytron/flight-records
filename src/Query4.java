@@ -5,16 +5,18 @@ public class Query4 {
 
     public static Iterable<String> Query4(Iterable<FlightRecord> input) {
 
-        Map<String, Integer> dest = new HashMap<>();
-
-        for (FlightRecord cid : input) {
-            if (cid.ORIGIN.equals("CID")) {
-                dest.merge(cid.DEST, 1, Integer::sum);
-            }
-        }
+        Map<String, Integer> destination = new HashMap<>();
         Set<String> result = new HashSet<>();
 
-        for(Map.Entry<String, Integer> fin : dest.entrySet()){
+        //this is going to find all the flights from cid and count the quantity of flights to the same destination
+        for (FlightRecord cid : input) {
+            if (cid.ORIGIN.equals("CID")) {
+                destination.merge(cid.DEST, 1, Integer::sum);
+            }
+        }
+
+        //this is to convert the map from above into a set with strings only
+        for(Map.Entry<String, Integer> fin : destination.entrySet()){
             result.add(fin.getKey() + "=" + fin.getValue());
         }
         return result;

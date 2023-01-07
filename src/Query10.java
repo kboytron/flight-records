@@ -4,7 +4,20 @@ import java.util.*;
 public class Query10 {
 
     public static Iterable<String> Query10(Iterable<FlightRecord> input) {
-        return null;
+        Map<String, String> departures = new HashMap<>(); //departures
+        Map<String, String> arrivals = new HashMap<>(); //arrivals
+        Set<String> result = new HashSet<>();
+
+        //this query is to show how many different ways you can get to lax from cid in two flights
+
+        for(FlightRecord cid: input ) {
+            if (cid.ORIGIN.equals("CID")) { departures.put(cid.DEST, cid.ORIGIN); } // store flights from cid
+            if (cid.DEST.equals("LAX")) { arrivals.put(cid.ORIGIN, cid.DEST); } //lax arrivals
+        }
+        for(String i: departures.keySet()){
+            if(arrivals.containsKey(i)){ result.add("CID->" + i + "->LAX"); } //if a departure and arrival can be chained we add it
+        }
+        return result;
     }
 
     public static void main(String[] args) throws IOException {

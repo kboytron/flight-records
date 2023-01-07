@@ -5,26 +5,20 @@ public class Query5 {
     public static String Query5(Iterable<FlightRecord> input) {
         Map<Integer, Integer> month = new HashMap<>();
 
-        for(FlightRecord cid : input){
-            month.merge(cid.MONTH, 1, Integer::sum);
-        }
+        //this query is to find which month had the most flights.
+
+        for(FlightRecord cid : input){ month.merge(cid.MONTH, 1, Integer::sum); }
         Map.Entry<Integer, Integer> max = null;
         for(Map.Entry<Integer, Integer> entry : month.entrySet()){
-            if(max == null || max.getValue() < entry.getValue()){
-                max = entry;
-            }
-
+            if(max == null || max.getValue() < entry.getValue()){ max = entry; }
         }
-        String mans = null;
+        String maxMonth = null;
+        String maxNum = null;
         if (max != null) {
-            mans = max.getKey().toString();
+            maxMonth = max.getKey().toString();
+            maxNum = max.getValue().toString();
         }
-        String ans = null;
-        if (max != null) {
-            ans = max.getValue().toString();
-        }
-
-        return mans + " had " + ans + " flights";
+        return maxMonth + " had " + maxNum + " flights";
     }
 
     public static void main(String[] args) throws IOException {

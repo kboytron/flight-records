@@ -5,12 +5,9 @@ public class Query1 {
     public static int Query1(Iterable<FlightRecord> input) {
         int count = 0;
 
-        //Iterator<FlightRecord> iter = input.iterator();
-
-
-
-        for(FlightRecord CID : input){
-            if(CID.ORIGIN.equals("CID")){ count++; }
+        //this query counts how many flights went out of CID
+        for(FlightRecord f : input){
+            if(f.ORIGIN.equals("CID")){ count++; }
         }
         return count;
     }

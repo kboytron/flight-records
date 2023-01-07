@@ -5,14 +5,15 @@ import java.util.Set;
 public class Query2 {
 
     public static Iterable<String> Query2(Iterable<FlightRecord> input) {
-        Set<String> dest = new HashSet<>();
+        Set<String> destination = new HashSet<>();
 
+        //this query checks all the possible destinations from cid in one flight (no connections)
         for(FlightRecord cid : input){
             if(cid.ORIGIN.equals("CID")){
-                dest.add(cid.DEST + ", " + cid.DEST_STATE_ABR);
+                destination.add(cid.DEST + ", " + cid.DEST_STATE_ABR);
             }
         }
-        return dest;
+        return destination;
     }
 
     public static void main(String[] args) throws IOException {
