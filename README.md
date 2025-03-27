@@ -26,20 +26,32 @@ Built over multiple phases, each assignment builds on the other, showcasing skil
 
 ## Project Structure
 - `src/`: Java source code for query operations, dataset parsing, and query execution.
-- `test/`: Unit tests to verify functionality, efficiency, and correctness of queries and operations.
+- `tests/`: JUnit test files to verify functionality, efficiency, and correctness of queries and operations.
 
 ## Setup Instructions
+
 1. Clone the repository:
-   ```sh
-   git clone https://github.com/kboytron/flight-records
-   ```
-2. Open the project in IntelliJ IDEA.
-3. Add the `commons-csv-1.8.jar` dependency.
-4. Ensure the `flights1990.csv`, `flights2005.csv`, and `flights2020.csv` data files are available.
-5. Run the tests to verify setup:
-   ```sh
-   ./gradlew test
-   ```
+
+    ```sh
+    git clone https://github.com/kboytron/flight-records
+    ```
+
+2. Open the project in IntelliJ IDEA (or any Java IDE).
+
+3. Add the `commons-csv-1.8.jar` dependency to your project.
+
+4. Place the CSV files inside a directory named `data/` at the project root:
+   - `flights1990.csv`
+   - `flights2005.csv`
+   - `flights2020.csv`
+
+   > These datasets are available from the U.S. Department of Transportation's BTS website:
+   > https://www.transtats.bts.gov/databases.asp?Z1qr_VQ=E&Z1qr_Qr5p=N8vn6v10&f7owrp6_VQF=D
+
+
+5. To run tests:
+    - Right-click the `tests/` directory in your IDE and select **Run All Tests**.
+    - Or, configure a JUnit run configuration.
 
 ## Queries and Operations
 The system supports a variety of operations and queries:

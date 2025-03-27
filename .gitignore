@@ -3,6 +3,7 @@
 # Only source code files should be committed (e.g., .java).
 # data files
 *.csv
+*.txt
 
 # backup files
 *~
